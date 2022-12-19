@@ -25,6 +25,8 @@ You may want to verify your identity using something called [NIP-05: Mapping Nos
 
 And then in astral.ninja, I put `cryptoquick@cryptoquick.com` as my NIP-05 identifier. This won't work for anyone else, because I specified my public key within the file, and nobody else should have my secret key that I use to sign my messages when they're checked against that public key.
 
+Also bear in mind, Nostr is a protocol that's actually much more flexible than just a use as a Twitter-like social media platform. For example, [Anigma](https://anigma.io) is a client that's more similar to a Telegram chat than a Twitter feed.
+
 ## Relays
 
 Definitely add more relays, it can help a lot. Here's a list of mine:
@@ -77,6 +79,6 @@ Also be sure to check out the [nostr.directory](https://www.nostr.directory/) wh
 
 For those wondering, Nostr definitely does use servers, but clients-- of which there are many-- are configured to use multiple servers and it's all pretty seamless. It's basically what Mastodon should have been, even though it might still run into scaling problems. The best part is even when one relay is over capacity, your client can use another easily enough. You might have a fragmented social experience that might be a bit confusing, but is that better than seeing the failwhale? You decide.
 
-For more up-to-date links and information, see the [Awesome Nostr](https://github.com/aljazceru/awesome-nostr) page. Also, for those who find technical stuff interesting, the NIPs are pretty short and well-written, they have a list of all the [NIP by title](https://github.com/nostr-protocol/nips#nips).
+For more up-to-date links and information, see the resources listed on [Nostr.net]](https://www.nostr.net/). Also, for those who find technical stuff interesting, the NIPs are pretty short and well-written, they have a list of all the [NIP by title](https://github.com/nostr-protocol/nips#nips).
 
 Feel free to [create an issue](https://github.com/cryptoquick/nostr-guide/issues), [file a PR](https://github.com/cryptoquick/nostr-guide/pulls), or reach out to me via a Nostr encrypted DM!

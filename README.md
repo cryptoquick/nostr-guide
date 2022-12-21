@@ -36,8 +36,6 @@ Definitely add more relays, it can help a lot. Here's a list of mine:
 - `wss://nostr-relay.wlvs.space`
 - `wss://relay.damus.io`
 - `wss://relay.nostr.info`
-- `wss://expensive-relay.fiatjaf.com`
-	-  If you have the sats, be sure to visit <https://expensive-relay.fiatjaf.com/> and pay the LN invoice
 - `wss://nostr-2.zebedee.cloud`
 	- This one is supposed to be particularly well-tuned and performant, thanks, andreneves!
 - `wss://nostr-relay.untethr.me`

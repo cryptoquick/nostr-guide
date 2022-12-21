@@ -14,6 +14,8 @@ Also, when you get your security details, definitely write down your nsec in a s
 
 [astral.ninja](https://astral.ninja/) is my favorite web-based client. It can be a little slow however, especially on mobile. If you have an npub from Damus, that will work here, but be sure to grab the hex encoding also. A note on encodings: Hex encoding is 64 characters from 0-9 and a-f. An npub is a bech32 encoding, and is about same the length, but it starts with `npub1` and is considered more "modern", but are less compatible with older clients. For those curious, see [NIP-19: bech32-encoded entities](https://github.com/nostr-protocol/nips/blob/master/19.md).
 
+Damus also operates a site for converting your npub and nsec keys to hex encoding for use on other clients that don't support the newer key format. See: <https://damus.io/key/>
+
 Astral does lack likes / hearts, and it has trouble loading images that aren't served from websites that have their HTTP servers configured to allow something called CORS. To fix this, if you run your own HTTP server like Nginx, look into [this issue](https://serverfault.com/questions/162429/how-do-i-add-access-control-allow-origin-in-nginx/979627#979627).
 
 Be aware, if you follow more than a couple dozen people, Astral might become unusable just because of memory constraints. That's why it can be difficult to use on mobile.

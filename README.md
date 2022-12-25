@@ -6,28 +6,32 @@ For those who keep hearing about Nostr but don't know where to start, this guide
 
 Nostr has multiple client implementations, relay implementations, and relay servers. They can be mixed and matched and data is reasonably portable between them. It works surprisingly well, even if not all features work everywhere in the same way always.
 
-[Damus](https://damus.io/) is the fullest featured client at present. It only supports iOS, but if you have a working i-device of some kind, that might be worth dusting off just for Damus, it's that good. It has support for likes, many other clients don't, however, it doesn't yet support easily changing your profile details within the app itself.
+[Damus](https://damus.io/) is the fullest featured client at present. It only supports iOS, but if you have a working i-device of some kind, that might be worth dusting off just for Damus, it's that good. It has support for likes, many other clients don't, and it's been updated to support changing your profile details within the app itself.
 
-If you do not have one, it's fine to skip this, since you'll eventually need to load it into another site to change your details.
+If you do not have one, an Android Damus client is in the works, as are desktop clients. The web clients might have security issues, however.
 
 Also, when you get your security details, definitely write down your nsec in a safe place and your npub in a convenient place, and try not to mix up the two. Similar for your public key and private key.
 
-[astral.ninja](https://astral.ninja/) is my favorite web-based client. It can be a little slow however, especially on mobile. If you have an npub from Damus, that will work here, but be sure to grab the hex encoding also. A note on encodings: Hex encoding is 64 characters from 0-9 and a-f. An npub is a bech32 encoding, and is about same the length, but it starts with `npub1` and is considered more "modern", but are less compatible with older clients. For those curious, see [NIP-19: bech32-encoded entities](https://github.com/nostr-protocol/nips/blob/master/19.md).
+[astral.ninja](https://astral.ninja/) is my favorite web-based client. I would not recommend using a web client at the moment, however, since there are people who are exploiting browser bugs to steal people's private keys. It can also be a little slow if you have a lot of people you're following, especially on mobile. If you have an npub from Damus, that will work here, but be sure to grab the hex encoding also. A note on encodings: Hex encoding is 64 characters from 0-9 and a-f. An npub is a bech32 encoding, and is about same the length, but it starts with `npub1` and is considered more "modern", but are less compatible with older clients. For those curious, see [NIP-19: bech32-encoded entities](https://github.com/nostr-protocol/nips/blob/master/19.md).
 
-Damus also operates a site for converting your npub and nsec keys to hex encoding for use on other clients that don't support the newer key format. See: <https://damus.io/key/>
+Damus also operates a site for converting your npub and nsec keys to hex encoding for use on other clients that don't support the newer key format. See: <https://damus.io/key/>. Damus also has a web client, but it's down right now due to the aforementioned private key stealing issue.
 
-Astral does lack likes / hearts, and it has trouble loading images that aren't served from websites that have their HTTP servers configured to allow something called CORS. To fix this, if you run your own HTTP server like Nginx, look into [this issue](https://serverfault.com/questions/162429/how-do-i-add-access-control-allow-origin-in-nginx/979627#979627).
+Astral also lacks likes / hearts, and it has trouble loading images that aren't served from websites that have their HTTP servers configured to allow something called CORS. To fix this, if you run your own HTTP server like Nginx, look into [this issue](https://serverfault.com/questions/162429/how-do-i-add-access-control-allow-origin-in-nginx/979627#979627).
 
 Be aware, if you follow more than a couple dozen people, Astral might become unusable just because of memory constraints. That's why it can be difficult to use on mobile.
 
 There's no image upload feature on Nostr clients, so you have to use third-party sites like Imgur. I personally have a site I self-host from my residence from Synology NAS that has a CloudFlare CDN put in front for speed and IP privacy.
 
 You may want to verify your identity using something called [NIP-05: Mapping Nostr keys to DNS-based internet identifiers](https://github.com/nostr-protocol/nips/blob/master/05.md). I basically just put a file containing this JSON here:
-<https://cryptoquick.com/.well-known/nostr.json?name=cryptoquick>
+<https://cryptoquick.com/.well-known/nostr.json?name=cryptoquick>. Then, in astral.ninja, I put `cryptoquick@cryptoquick.com` as my NIP-05 identifier. This won't work for anyone else, because I specified my public key within the file, and nobody else should have my secret key that I use to sign my messages when they're checked against that public key.
 
-And then in astral.ninja, I put `cryptoquick@cryptoquick.com` as my NIP-05 identifier. This won't work for anyone else, because I specified my public key within the file, and nobody else should have my secret key that I use to sign my messages when they're checked against that public key.
+NVK created a helpful guide for using GitHub Pages for NIP-05 verification: <https://nvk.org/n00b-nip5>
 
-Also bear in mind, Nostr is a protocol that's actually much more flexible than just a use as a Twitter-like social media platform. For example, [Anigma](https://anigma.io) is a client that's more similar to a Telegram chat than a Twitter feed.
+Damus recently rolled out a Lightning payments feature. To use it, if you're also a Strike user, go to <https://strike.army> and enter your Strike username. It'll generate something that looks like an email address called an LNURL. I got it working within Phoenix, but not Blue Wallet.
+
+## Syntax
+
+To mention a user, get their pk and prepend it with an @ sign. You can get it by tapping the key on their profile. It's that simple.
 
 ## Relays
 
@@ -78,6 +82,8 @@ Also be sure to check out the [nostr.directory](https://www.nostr.directory/) wh
 ## Final Thoughts
 
 For those wondering, Nostr definitely does use servers, but clients-- of which there are many-- are configured to use multiple servers and it's all pretty seamless. It's basically what Mastodon should have been, even though it might still run into scaling problems. The best part is even when one relay is over capacity, your client can use another easily enough. You might have a fragmented social experience that might be a bit confusing, but is that better than seeing the failwhale? You decide.
+
+Also bear in mind, Nostr is a protocol that's actually much more flexible than just a use as a Twitter-like social media platform. For example, [Anigma](https://anigma.io) is a client that's more similar to a Telegram chat than a Twitter feed.
 
 For more up-to-date links and information, see the resources listed on [Nostr.net]](https://www.nostr.net/). Also, for those who find technical stuff interesting, the NIPs are pretty short and well-written, they have a list of all the [NIP by title](https://github.com/nostr-protocol/nips#nips).
 
